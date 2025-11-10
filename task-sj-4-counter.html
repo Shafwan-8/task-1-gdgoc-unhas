@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>GDG OC UNHAS</title>
+  <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+</head>
+<body class="flex justify-center items-center h-screen bg-gradient-to-r from-blue-400 to-purple-500">
+  <section class="bg-white rounded-lg shadow-lg p-10 space-y-7 text-center">
+    <div>
+      <label id="label" class="font-bold text-6xl text-gray-800">0</label>
+    </div>
+    <div>
+      <label for="step-input" class="text-lg font-medium">Step: </label>
+      <input type="number" id="step-input" class="border border-gray-300 p-2 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500" placeholder="Step value" value="1">
+    </div>
+    <div class="flex justify-around gap-4">
+      <button id="btn-kurang" class="bg-red-400 px-4 py-2 rounded-md text-white hover:bg-red-600 transition">Kurang</button>
+      <button id="btn-reset" class="bg-gray-800 px-4 py-2 rounded-md text-white hover:bg-gray-600 transition">Reset</button>
+      <button id="btn-tambah" class="bg-green-400 px-4 py-2 rounded-md text-white hover:bg-green-600 transition">Tambah</button>
+    </div>
+  </section>
+
+  <script>
+    let count = 0;
+    const label = document.getElementById('label');
+    const stepInput = document.getElementById('step-input');
+
+    document.getElementById('btn-tambah').addEventListener('click', () => {
+      const step = parseInt(stepInput.value) || 1;
+      count += step;
+      label.textContent = count;
+    });
+
+    document.getElementById('btn-kurang').addEventListener('click', () => {
+      const step = parseInt(stepInput.value) || 1;
+      count -= step;
+      label.textContent = count;
+      });
+
+    document.getElementById('btn-reset').addEventListener('click', () => {
+      const konfirmasi = confirm("Apakah Anda yakin ingin mereset?"); 
+        if (konfirmasi) {
+          count = 0;
+          label.textContent = count;
+        }
+    });
+  </script>
+</body>
+</html>
