@@ -1,1 +1,1 @@
-# task-1-gdgoc-unhas
+task-study-jam-gdgoc-unhas
